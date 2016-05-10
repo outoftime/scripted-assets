@@ -12,6 +12,20 @@ describe('getFirstName()', function() {
   });
 });
 
+describe('getLastName()', function() {
+  it('should be defined as a function', function() {
+    expect(window.getLastName).toEqual(jasmine.any(Function));
+  });
+
+  it('should return the firstName property of the object I pass', function() {
+    expect(getLastName({firstName: 'Mat', lastName: 'Brown'})).toBe('Brown');
+    expect(getLastName({firstName: 'Jesse', lastName: 'Wang'})).toBe('Wang');
+    expect(getLastName({firstName: 'Alex', lastName: 'Pelan'})).toBe('Pelan');
+    expect(getLastName({firstName: 'Meghan', lastName: 'Knoll'})).toBe('Knoll');
+    expect(getLastName({})).toBeUndefined();
+  });
+});
+
 describe('getFullName()', function() {
   it('should be defined as a function', function() {
     expect(window.getFullName).toEqual(jasmine.any(Function));
